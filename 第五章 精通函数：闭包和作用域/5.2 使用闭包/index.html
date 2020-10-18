@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box1">First Box</div>
+  </body>
+  <script>
+    'use strict'
+    function animateIt(elementId) {
+      let ele = document.getElementById(elementId)
+      let tick = 0
+      let timer = setInterval(function () {
+        if (tick < 100) {
+          ele.style.left = ele.style.top = tick + 'px'
+          tick++
+        } else {
+          clearInterval(timer)
+        }
+      }, 10)
+    }
+    animateIt('box1')
+
+    function skulk(ninja) {
+      const skill = 'ninja skill'
+      report(ninja)
+    }
+
+    function report(message) {
+      console.log(message, skill)
+    }
+
+    skulk('onece')
+    skulk('twice')
+    //
+  </script>
+</html>
