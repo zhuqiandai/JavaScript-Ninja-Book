@@ -18,3 +18,23 @@ const p = new Proxy(ninja, {
 console.log(p.skillLevel)
 console.log((p.skillLevel = 3))
 console.log(p.skillLevel)
+
+/**
+ * @description: 使用 proxy 打印日志
+ * @param {*}
+ * @return {*}
+ */
+function makeLoggalbe(target) {
+  return new Proxy(target, {
+    get: (target, property) => {
+      return target[property]
+    },
+    set: (target, property, value) => {
+      target[property] = value
+    },
+  })
+}
+
+let ninja2 = { name: 'zhuqd' }
+ninja2 = makeLoggalbe(ninja2)
+console.log(ninja2)
